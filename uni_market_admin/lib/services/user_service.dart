@@ -17,6 +17,7 @@ class UserService {
   Future<void> updateUserStatus(String userId, bool isActive) async {
     await _firestore.collection('users').doc(userId).update({
       'isActive': isActive,
+      'isBanned': !isActive,
     });
   }
 

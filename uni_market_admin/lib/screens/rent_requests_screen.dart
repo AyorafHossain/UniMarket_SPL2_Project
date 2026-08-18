@@ -48,83 +48,9 @@ class _RentRequestsScreenState extends State<RentRequestsScreen> {
             ),
           ),
           actions: [
-            SizedBox(
-              width: double.maxFinite,
-              child: Row(
-                children: [
-                  TextButton(
-                    onPressed: () => Navigator.pop(context),
-                    child: const Text('Close'),
-                  ),
-                  const Spacer(),
-                  if (request.status == 'pending') ...[
-                    Flexible(
-                      child: ElevatedButton(
-                        onPressed: () async {
-                          await _rentService.updateRentRequestStatus(request.rentRequestId, 'rejected');
-                          if (mounted) {
-                            Navigator.pop(context);
-                            ScaffoldMessenger.of(context).showSnackBar(
-                              const SnackBar(content: Text('Rent Request Rejected'), backgroundColor: Colors.red),
-                            );
-                          }
-                        },
-                        style: ElevatedButton.styleFrom(
-                          backgroundColor: Colors.red,
-                          padding: const EdgeInsets.symmetric(horizontal: 8),
-                        ),
-                        child: const FittedBox(
-                          fit: BoxFit.scaleDown,
-                          child: Text('Reject', style: TextStyle(color: Colors.white)),
-                        ),
-                      ),
-                    ),
-                    const SizedBox(width: 4),
-                    Flexible(
-                      child: ElevatedButton(
-                        onPressed: () async {
-                          await _rentService.updateRentRequestStatus(request.rentRequestId, 'accepted');
-                          if (mounted) {
-                            Navigator.pop(context);
-                            ScaffoldMessenger.of(context).showSnackBar(
-                              const SnackBar(content: Text('Rent Request Approved!'), backgroundColor: Colors.green),
-                            );
-                          }
-                        },
-                        style: ElevatedButton.styleFrom(
-                          backgroundColor: Colors.green,
-                          padding: const EdgeInsets.symmetric(horizontal: 8),
-                        ),
-                        child: const FittedBox(
-                          fit: BoxFit.scaleDown,
-                          child: Text('Approve', style: TextStyle(color: Colors.white)),
-                        ),
-                      ),
-                    ),
-                  ] else if (request.status == 'accepted')
-                    Flexible(
-                      child: ElevatedButton(
-                        onPressed: () async {
-                          await _rentService.updateRentRequestStatus(request.rentRequestId, 'cancelled');
-                          if (mounted) {
-                            Navigator.pop(context);
-                            ScaffoldMessenger.of(context).showSnackBar(
-                              const SnackBar(content: Text('Rent Request Cancelled'), backgroundColor: Colors.orange),
-                            );
-                          }
-                        },
-                        style: ElevatedButton.styleFrom(
-                          backgroundColor: Colors.orange,
-                          padding: const EdgeInsets.symmetric(horizontal: 8),
-                        ),
-                        child: const FittedBox(
-                          fit: BoxFit.scaleDown,
-                          child: Text('Cancel Request', style: TextStyle(color: Colors.white)),
-                        ),
-                      ),
-                    ),
-                ],
-              ),
+            TextButton(
+              onPressed: () => Navigator.pop(context),
+              child: const Text('Close'),
             ),
           ],
         );

@@ -16,6 +16,7 @@ import 'exchange_requests_screen.dart';
 import 'categories_screen.dart';
 import 'profile_screen.dart';
 import 'pending_payouts_screen.dart';
+import 'support_tickets_screen.dart';
 
 class MainLayout extends StatefulWidget {
   const MainLayout({super.key});
@@ -33,8 +34,9 @@ class _MainLayoutState extends State<MainLayout> {
     'Rent Management',
     'Exchange Requests',
     'Category Management',
-    'Profile Settings',
-    'Pending Payouts'
+    'Pending Payouts',
+    'Support Tickets',
+    'Profile Settings'
   ];
 
   final List<Widget> _screens = [
@@ -45,8 +47,9 @@ class _MainLayoutState extends State<MainLayout> {
     const RentRequestsScreen(),
     const ExchangeRequestsScreen(),
     const CategoriesScreen(),
-    const ProfileScreen(),
     const PendingPayoutsScreen(),
+    const SupportTicketsScreen(),
+    const ProfileScreen(),
   ];
 
   Widget _buildMenuItem(int index, IconData icon, String title) {
@@ -145,8 +148,9 @@ class _MainLayoutState extends State<MainLayout> {
                   _buildMenuItem(4, Icons.car_rental_outlined, 'Rent Requests'),
                   _buildMenuItem(5, Icons.swap_horiz_outlined, 'Exchange Requests'),
                   _buildMenuItem(6, Icons.category_outlined, 'Categories'),
-                  _buildMenuItem(7, Icons.manage_accounts_outlined, 'Profile Settings'),
-                  _buildMenuItem(8, Icons.payments_outlined, 'Pending Payouts'),
+                  _buildMenuItem(7, Icons.payments_outlined, 'Pending Payouts'),
+                  _buildMenuItem(8, Icons.support_agent_outlined, 'Support Tickets'),
+                  _buildMenuItem(9, Icons.manage_accounts_outlined, 'Profile Settings'),
                 ],
               ),
             ),

@@ -418,7 +418,6 @@ class _ProductsScreenState extends State<ProductsScreen> with SingleTickerProvid
     if (confirm == true) {
       await _productService.deleteProduct(productId);
       if (mounted) {
-        Navigator.pop(context); // Close details dialog
         ScaffoldMessenger.of(context).showSnackBar(
           const SnackBar(content: Text('Product deleted successfully'), backgroundColor: Colors.green),
         );

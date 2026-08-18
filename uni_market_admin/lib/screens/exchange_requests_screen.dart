@@ -45,62 +45,9 @@ class _ExchangeRequestsScreenState extends State<ExchangeRequestsScreen> {
             ),
           ),
           actions: [
-            SizedBox(
-              width: double.maxFinite,
-              child: Row(
-                children: [
-                  TextButton(
-                    onPressed: () => Navigator.pop(context),
-                    child: const Text('Close'),
-                  ),
-                  const Spacer(),
-                  if (request.status == 'pending') ...[
-                    Flexible(
-                      child: ElevatedButton(
-                        onPressed: () async {
-                          await _exchangeService.updateExchangeRequestStatus(request.requestId, 'rejected');
-                          if (mounted) {
-                            Navigator.pop(context);
-                            ScaffoldMessenger.of(context).showSnackBar(
-                              const SnackBar(content: Text('Exchange Request Rejected'), backgroundColor: Colors.red),
-                            );
-                          }
-                        },
-                        style: ElevatedButton.styleFrom(
-                          backgroundColor: Colors.red,
-                          padding: const EdgeInsets.symmetric(horizontal: 8),
-                        ),
-                        child: const FittedBox(
-                          fit: BoxFit.scaleDown,
-                          child: Text('Reject', style: TextStyle(color: Colors.white)),
-                        ),
-                      ),
-                    ),
-                    const SizedBox(width: 4),
-                    Flexible(
-                      child: ElevatedButton(
-                        onPressed: () async {
-                          await _exchangeService.updateExchangeRequestStatus(request.requestId, 'accepted');
-                          if (mounted) {
-                            Navigator.pop(context);
-                            ScaffoldMessenger.of(context).showSnackBar(
-                              const SnackBar(content: Text('Exchange Request Approved!'), backgroundColor: Colors.green),
-                            );
-                          }
-                        },
-                        style: ElevatedButton.styleFrom(
-                          backgroundColor: Colors.green,
-                          padding: const EdgeInsets.symmetric(horizontal: 8),
-                        ),
-                        child: const FittedBox(
-                          fit: BoxFit.scaleDown,
-                          child: Text('Approve', style: TextStyle(color: Colors.white)),
-                        ),
-                      ),
-                    ),
-                  ],
-                ],
-              ),
+            TextButton(
+              onPressed: () => Navigator.pop(context),
+              child: const Text('Close'),
             ),
           ],
         );

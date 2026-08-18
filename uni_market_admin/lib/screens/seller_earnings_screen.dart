@@ -121,7 +121,7 @@ class _SellerEarningsScreenState extends State<SellerEarningsScreen> {
                     final Map<String, double> sellerEarnings = {};
                     final Map<String, int> sellerItemsSold = {};
 
-                    const validStatuses = ['paid', 'success', 'completed', 'verified'];
+                    const validStatuses = ['settled'];
 
                     for (var order in orders) {
                       if (validStatuses.contains(order.status.toLowerCase())) {

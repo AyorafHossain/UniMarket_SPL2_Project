@@ -56,7 +56,7 @@ class DashboardService {
       final status = data['status']?.toString() ?? 'pending';
       ordersStatus[status] = (ordersStatus[status] ?? 0) + 1;
 
-      if (status == 'paid') {
+      if (status == 'paid' || status == 'completed') {
         final amount = (data['totalAmount'] ?? 0.0) as num;
         totalRevenue += amount.toDouble();
       }
